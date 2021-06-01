@@ -1,13 +1,19 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import rootReducer from "../reducers/index";
+import { articleReducer } from "../slices/articles";
 import { forbiddenWordsMiddleware } from "../middleware";
 import thunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
 
-const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middleware = [
+    /*YOUR CUSTOM MIDDLEWARES HERE*/
+    forbiddenWordsMiddleware,
+    thunk
+];
 
-const store = createStore(
-    rootReducer,
-    storeEnhancers(applyMiddleware(forbiddenWordsMiddleware, thunk))
-); //receives reducers, and can have initial state for server side rendering
+const store = configureStore({
+    reducer: {
+        article: articleReducer,
+    },
+    middleware,
+}); //receives reducers, and can have initial state for server side rendering
 
 export default store;

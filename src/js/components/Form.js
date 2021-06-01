@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addArticle } from "../actions/index";
+import { addArticle } from "../slices/articles";
 
 function mapDispatchToProps(dispatch) {
     return {

@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { getData } from "../actions/index";
+import { getArticles } from "../actions/index";
 
 function mapStateToProps(state) {
     return {
-        articles: state.remoteArticles.slice(0, 10)
+        articles: state.article.remoteArticles.slice(0, 10)
     };
 }
 
-const Post = ({ articles, getData }) => {
+const Post = ({ articles, getArticles }) => {
 
     useEffect(() => {
-        getData();
-    }, [getData])
+        getArticles();
+    }, [getArticles])
 
     return (
         <ul>
-            {articles.map(el => (
+            {articles && articles.map(el => (
                 <li key={el.id}>{el.title}</li>
             ))}
         </ul>
@@ -25,5 +25,5 @@ const Post = ({ articles, getData }) => {
 
 export default connect(
     mapStateToProps,
-    { getData }
+    { getArticles }
 )(Post);
