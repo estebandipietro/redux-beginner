@@ -1,5 +1,7 @@
 Simple app to get into redux and state management libraries
 
+![Captura](https://user-images.githubusercontent.com/26470908/156252584-0b6c6ae1-bcad-418e-84b7-f35c81be7cab.PNG)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
